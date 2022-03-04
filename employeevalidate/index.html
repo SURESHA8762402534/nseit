@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: radial-gradient( red, green, yellow, blue);
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+            
+        }
+        form{
+            width: 50vw;
+            height: 65vh;
+            background-color: beige;
+            border-radius: 20px;
+            box-shadow: 0 10px 10px 0 black;
+            margin: 100px auto;
+            text-align: left; 
+            display: grid;
+            padding: 20px;
+            
+        }
+        span{
+            color: red;
+            margin-bottom: 20px;
+        }
+        form > p{
+            margin-right: 20px;
+        }
+        input{
+            padding: 5px;
+           
+        }
+        @media screen and (max-width: 900px) {
+             body {
+                background:radial-gradient(blue,skyblue,yellow);
+            }
+            form{
+                margin: 100px 20px auto 20px;
+                width: auto;
+                height: auto;
+            }
+}
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+
+<body ng-app="">
+
+<form name="myForm">
+    <h1>Employee Validation</h1><br>
+<label for="myName">EmployeeName:</label>
+<input name="myName" ng-model="myName" required>
+<span ng-show="myForm.myName.$touched && myForm.myName.$invalid">The name is required.</span>
+
+
+    <label for="myEmail">EmailId:</label>
+    <input name="myEmail" ng-model="myEmail"required>
+    <span ng-show="myForm.myEmail.$touched && myForm.myEmail.$invalid">The Email is required.</span>
+    
+
+     <label for="myPh"> phoneNo:</label>
+        <input name="myPh" ng-model="myPh" maxlength="10" minlength="10" type="number" required>
+        <span ng-show="myForm.myPh.$touched && myForm.myPh.$invalid">The phoneNo is required.</span>
+        
+    
+
+    <label for="address">Address:</label>
+    <textarea name="address" id="address" ng-model="addres" cols="20" rows="10" maxlength="200" minlength="50"></textarea>
+    <span ng-show="myForm.address.$touched && myForm.address.$invalid">The address is required.</span>
+<br>
+
+
+<button id="btn" type="submit">submit</button>
+</form>
+
+</body>
+</html>
